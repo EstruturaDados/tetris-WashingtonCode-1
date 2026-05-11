@@ -31,3 +31,49 @@ void jogarPeca(Fila *f);
 void inserirNovaPeca(Fila *f, int *proximoId);
 void inserirPecaNaFila(Fila *f, char tipo, int id);
 void exibirFila(Fila *f);
+
+// Função principal
+int main() {
+    Fila f;
+    char opcao;
+    int proximoId = 1; // Contador para garantir IDs exclusivos
+
+    srand(time(NULL)); // Inicializa o gerador de números aleatórios
+
+    inicializarFila(&f);
+    gerarPecas(&f, &proximoId); // Preenche a fila inicialmente
+
+    do {
+        printf("\n---------------------------------------------------\n");
+        printf("SEJA BEM VINDO AO JOGO TETRIS STACK - NÍVEL NOVATO!\n");
+        printf("---------------------------------------------------\n\n");
+
+        exibirFila(&f);
+
+        printf("MENU DE OPÇÕES:\n");
+        printf("1. Jogar peça (remover - dequeue)\n");
+        printf("2. Inserir nova peça (Adicionar - enqueue)\n");
+        printf("3. Sair\n");
+        printf("\n");
+        printf("Escolha uma opção (1-3): ");
+        scanf(" %c", &opcao);
+        getchar();
+        
+        switch (opcao) {
+            case '1':
+                jogarPeca(&f);
+                break;
+            case '2':
+                inserirNovaPeca(&f, &proximoId);
+                break;
+            case '3':
+                printf("Saindo do programa...\n");
+                break;
+            default:
+                printf("Opção inválida! Tente novamente.\n");
+        }
+
+    } while (opcao != '3');
+
+    return 0;
+}
