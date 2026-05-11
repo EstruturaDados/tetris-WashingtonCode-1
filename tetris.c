@@ -115,3 +115,16 @@ void inserirNovaPeca(Fila *f, int *proximoId) {
         printf("\n[ERRO] Fila cheia! Remova uma peça antes de inserir outra.\n");
     }
 }
+
+// Função para jogar uma peça, remover da frente da fila (dequeue)
+void jogarPeca(Fila *f) {
+    if (f->total == 0) {
+        printf("\n[ERRO] Fila vazia! Nenhuma peça para jogar.\n");
+        return;
+    }
+    Peca p = f->nome[f->inicio];
+    printf("\nPeça JOGADA (removida): [%c %d]\n", p.tipo, p.id);
+    
+    f->inicio = (f->inicio + 1) % MAX_PECAS; // Incremento circular
+    f->total--;
+}
