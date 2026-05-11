@@ -6,3 +6,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
+// Definição de constantes
+#define MAX_PECAS 5
