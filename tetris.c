@@ -104,3 +104,14 @@ void inserirPecaNaFila(Fila *f, char tipo, int id) {
     f->fim = (f->fim + 1) % MAX_PECAS; // Função circular
     f->total++;
 }
+
+// Função para o jogador adicionar uma peça (gera aleatoriamente)
+void inserirNovaPeca(Fila *f, int *proximoId) {
+    char tipos[] = {'I', 'O', 'T', 'L'};
+    if (f->total < MAX_PECAS) {
+        inserirPecaNaFila(f, tipos[rand() % 4], (*proximoId)++);
+        printf("\nNova peça adicionada com sucesso!\n");
+    } else {
+        printf("\n[ERRO] Fila cheia! Remova uma peça antes de inserir outra.\n");
+    }
+}
