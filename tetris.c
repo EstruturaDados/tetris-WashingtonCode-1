@@ -23,3 +23,11 @@ typedef struct {
     int fim;              // Índice do final da fila
     int total;          // Tamanho atual da fila
 } Fila;
+
+// Protótipos das funções
+void inicializarFila(Fila *f);
+void gerarPecas(Fila *f, int *proximoId);
+void jogarPeca(Fila *f);
+void inserirNovaPeca(Fila *f, int *proximoId);
+void inserirPecaNaFila(Fila *f, char tipo, int id);
+void exibirFila(Fila *f);
