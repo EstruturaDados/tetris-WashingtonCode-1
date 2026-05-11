@@ -128,3 +128,18 @@ void jogarPeca(Fila *f) {
     f->inicio = (f->inicio + 1) % MAX_PECAS; // Incremento circular
     f->total--;
 }
+
+// Função para exibir a fila atual
+void exibirFila(Fila *f) {
+    printf("ESTADO DA FILA: ");
+    if (f->total == 0) {
+        printf("[Vazia]");
+    } else {
+        int idx = f->inicio;
+        for (int i = 0; i < f->total; i++) {
+            printf("[%c %d] ", f->nome[idx].tipo, f->nome[idx].id);
+            idx = (idx + 1) % MAX_PECAS;
+        }
+    }
+    printf("\n\n");
+}
