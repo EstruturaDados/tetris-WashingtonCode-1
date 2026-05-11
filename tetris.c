@@ -92,3 +92,15 @@ void gerarPecas(Fila *f, int *proximoId) {
         inserirPecaNaFila(f, tipos[rand() % 4], (*proximoId)++);
     }
 }
+
+// Lógica interna de inserção (Enqueue)
+void inserirPecaNaFila(Fila *f, char tipo, int id) {
+    if (f->total == MAX_PECAS) {
+        printf("\n[AVISO] Fila cheia! Não é possível inserir mais peças.\n");
+        return;
+    }
+    f->nome[f->fim].tipo = tipo;
+    f->nome[f->fim].id = id;
+    f->fim = (f->fim + 1) % MAX_PECAS; // Função circular
+    f->total++;
+}
