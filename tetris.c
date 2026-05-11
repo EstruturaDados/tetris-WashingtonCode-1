@@ -1,3 +1,8 @@
 // Desafio Tetris Stack - Nível Novato
 // Objetivo: Desenvolver uma estrutura de controle de peças do jogo, incluindo a implementação do sistema de fila de peças futuras, verificando se as regras de entrada, saída e troca estão funcionando.
 // Descrição: Agora, você implementará um programa em C que simula a fila de peças futuras do Tetris Stack. As peças têm um tipo (como 'I', 'O', 'T', 'L’), que representa suas formas e um identificador numérico (id) exclusivo. O programa oferecerá ao jogador a opção de visualizar a fila, jogar uma peça (remoção da frente) ou adicionar uma nova peça ao final da fila.
+
+// Inclusão de bibliotecas necessárias
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
