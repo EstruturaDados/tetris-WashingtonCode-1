@@ -84,3 +84,11 @@ void inicializarFila(Fila *f) {
     f->fim = 0;
     f->total = 0;
 }
+
+// Função para gerar as 5 peças iniciais para começar o jogo
+void gerarPecas(Fila *f, int *proximoId) {
+    char tipos[] = {'I', 'O', 'T', 'L'};
+    for (int i = 0; i < MAX_PECAS; i++) {
+        inserirPecaNaFila(f, tipos[rand() % 4], (*proximoId)++);
+    }
+}
