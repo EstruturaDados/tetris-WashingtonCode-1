@@ -15,3 +15,11 @@ typedef struct {
     char tipo; // Tipo da peça (I, O, T, L)
     int id;    // Identificador único da peça
 } Peca;
+
+// Estrutura para representar a fila de peças futuras
+typedef struct {
+    Peca nome[MAX_PECAS]; // Array para armazenar as peças
+    int inicio;           // Índice do início da fila
+    int fim;              // Índice do final da fila
+    int total;          // Tamanho atual da fila
+} Fila;
