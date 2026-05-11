@@ -9,3 +9,9 @@
 
 // Definição de constantes
 #define MAX_PECAS 5
+
+// Estrutura para representar uma peça do Tetris Stack 
+typedef struct {
+    char tipo; // Tipo da peça (I, O, T, L)
+    int id;    // Identificador único da peça
+} Peca;
