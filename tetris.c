@@ -124,3 +124,11 @@ Peca removerDaFila(Fila *f) {
     f->total--;
     return p;
 }
+
+// Função remover da fila
+Peca removerDaFila(Fila *f) {
+    Peca p = f->itens[f->inicio];
+    f->inicio = (f->inicio + 1) % MAX_FILA;
+    f->total--;
+    return p;
+}
