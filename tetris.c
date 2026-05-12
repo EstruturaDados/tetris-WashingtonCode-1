@@ -40,3 +40,54 @@ void jogarPeca(Fila *f, int *proximoId);
 void reservarPeca(Fila *f, Pilha *p, int *proximoId);
 void usarPecaReservada(Pilha *p);
 void exibirEstadoAtual(Fila *f, Pilha *p);
+
+// Função principal
+int main() {
+    Fila fila;
+    Pilha reserva;
+    int proximoId = 0;
+    int opcao;
+    
+    srand(time(NULL));
+
+    // Inicialização da fila e da pilha
+    inicializarFila(&fila);
+    inicializarPilha(&reserva);
+
+    // Preenchimento inicial (Fila com 5 elementos)
+    for (int i = 0; i < MAX_FILA; i++) {
+        adicionarAFila(&fila, &proximoId);
+    }
+
+    do {
+        exibirEstadoAtual(&fila, &reserva);
+
+        printf("Opções de Ação:\n");
+        printf("1. Jogar peça\n");
+        printf("2. Reservar peça\n");
+        printf("3. Usar peça reservada\n");
+        printf("0. Sair\n");
+        printf("\nOpção: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                jogarPeca(&fila, &proximoId);
+                break;
+            case 2:
+                reservarPeca(&fila, &reserva, &proximoId);
+                break;
+            case 3:
+                usarPecaReservada(&reserva);
+                break;
+            case 0:
+                printf("Saindo do programa...\n");
+                break;
+            default:
+                printf("Opção inválida!\n");
+        }
+    } while (opcao != 0);
+
+    return 0;
+}
+
