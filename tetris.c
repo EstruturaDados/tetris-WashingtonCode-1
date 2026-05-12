@@ -9,3 +9,10 @@
 // Definição de constantes
 #define MAX_FILA 5
 #define MAX_PILHA 3
+
+// Estrutura para representar uma peça
+typedef struct {
+    char nome; // 'I', 'O', 'T', 'L'
+    int id;    // Identificador único
+} Peca;
+
