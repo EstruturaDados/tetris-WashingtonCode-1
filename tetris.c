@@ -157,3 +157,15 @@ void usarPecaReservada(Pilha *p) {
         printf("\n[AVISO] Não há peças na reserva!\n");
     }
 }
+
+// Função trocar peça atual
+void trocarPecaAtual(Fila *f, Pilha *p) {
+    if (f->total > 0 && p->topo >= 0) {
+        Peca temp = f->itens[f->inicio];
+        f->itens[f->inicio] = p->itens[p->topo];
+        p->itens[p->topo] = temp;
+        printf("\n[AÇÃO] Troca realizada entre a frente da fila e o topo da reserva!\n");
+    } else {
+        printf("\n[ERRO] Operação NÃO REALIZADA: fila ou reserva vazia.\n");
+    }
+}
