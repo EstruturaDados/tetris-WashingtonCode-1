@@ -167,3 +167,28 @@ void usarPecaReservada(Pilha *p) {
         printf("\n[ERRO] Pilha de reserva vazia!\n");
     }
 }
+
+// Função exibir estado atual
+void exibirEstadoAtual(Fila *f, Pilha *p) {
+    printf("\n---------------------------------------------------\n");
+    printf("Estado atual:\n");
+    
+    // Fila de peças
+    printf("Fila de peças: ");
+    int idx = f->inicio;
+    for (int i = 0; i < f->total; i++) {
+        printf("[%c %d] ", f->itens[idx].nome, f->itens[idx].id);
+        idx = (idx + 1) % MAX_FILA;
+    }
+
+    // Pilha de reserva
+    printf("\nPilha de reserva (Topo -> Base): ");
+    if (p->topo == -1) {
+        printf("[Vazia]");
+    } else {
+        for (int i = p->topo; i >= 0; i--) {
+            printf("[%c %d] ", p->itens[i].nome, p->itens[i].id);
+        }
+    }
+    printf("\n---------------------------------------------------\n");
+}
