@@ -29,3 +29,14 @@ typedef struct {
     Peca itens[MAX_PILHA];
     int topo;
 } Pilha;
+
+// --- Protótipos das Funções ---
+void inicializarFila(Fila *f);
+void inicializarPilha(Pilha *p);
+Peca gerarPeca(int *proximoId);
+void adicionarAFila(Fila *f, int *proximoId); 
+Peca removerDaFila(Fila *f);               
+void jogarPeca(Fila *f, int *proximoId);
+void reservarPeca(Fila *f, Pilha *p, int *proximoId);
+void usarPecaReservada(Pilha *p);
+void exibirEstadoAtual(Fila *f, Pilha *p);
