@@ -91,3 +91,9 @@ int main() {
     return 0;
 }
 
+// Função inicializar fila
+void inicializarFila(Fila *f) {
+    f->inicio = 0;
+    f->fim = 0;
+    f->total = 0;
+}
