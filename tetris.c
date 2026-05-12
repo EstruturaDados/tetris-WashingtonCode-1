@@ -186,3 +186,23 @@ void trocaMultipla(Fila *f, Pilha *p) {
         printf("\n[ERRO] Quantidade insuficiente de peças para troca múltipla (mínimo 3 em cada).\n");
     }
 }
+
+// Função exibir estado atual
+void exibirEstadoAtual(Fila *f, Pilha *p) {
+    printf("\n---------------------------------------------------\n");
+    printf("ESTADO ATUAL\n");
+    printf("Fila de peças: ");
+    int idx = f->inicio;
+    for (int i = 0; i < f->total; i++) {
+        printf("[%c %d] ", f->itens[idx].nome, f->itens[idx].id);
+        idx = (idx + 1) % MAX_FILA;
+    }
+    printf("\nPilha de reserva (Topo -> Base): ");
+    if (p->topo == -1) printf("[Vazia]");
+    else {
+        for (int i = p->topo; i >= 0; i--) {
+            printf("[%c %d] ", p->itens[i].nome, p->itens[i].id);
+        }
+    }
+    printf("\n---------------------------------------------------\n");
+}
