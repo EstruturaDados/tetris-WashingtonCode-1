@@ -24,3 +24,8 @@ typedef struct {
     int total;
 } Fila;
 
+// Estrutura da Pilha (Reserva)
+typedef struct {
+    Peca itens[MAX_PILHA];
+    int topo;
+} Pilha;
