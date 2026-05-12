@@ -169,3 +169,20 @@ void trocarPecaAtual(Fila *f, Pilha *p) {
         printf("\n[ERRO] Operação NÃO REALIZADA: fila ou reserva vazia.\n");
     }
 }
+
+// Função troca multipla (alterna as 3 primeiras da fila com as 3 da pilha)
+void trocaMultipla(Fila *f, Pilha *p) {
+    if (f->total >= 3 && p->topo >= 2) {
+        for (int i = 0; i < 3; i++) {
+            int idxFila = (f->inicio + i) % MAX_FILA;
+            int idxPilha = p->topo - i;
+
+            Peca temp = f->itens[idxFila];
+            f->itens[idxFila] = p->itens[idxPilha];
+            p->itens[idxPilha] = temp;
+        }
+        printf("\n[AÇÃO] Troca múltipla de 3 peças concluída!\n");
+    } else {
+        printf("\n[ERRO] Quantidade insuficiente de peças para troca múltipla (mínimo 3 em cada).\n");
+    }
+}
