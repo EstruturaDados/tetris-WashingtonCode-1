@@ -97,3 +97,8 @@ void inicializarFila(Fila *f) {
     f->fim = 0;
     f->total = 0;
 }
+
+// Função inicializar pilha
+void inicializarPilha(Pilha *p) {
+    p->topo = -1;
+}
