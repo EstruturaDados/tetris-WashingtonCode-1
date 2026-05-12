@@ -125,10 +125,11 @@ Peca removerDaFila(Fila *f) {
     return p;
 }
 
-// Função remover da fila
-Peca removerDaFila(Fila *f) {
-    Peca p = f->itens[f->inicio];
-    f->inicio = (f->inicio + 1) % MAX_FILA;
-    f->total--;
-    return p;
+// Função jogar peça
+void jogarPeca(Fila *f, int *proximoId) {
+    if (f->total > 0) {
+        Peca p = removerDaFila(f);
+        printf("\n[AÇÃO] Você jogou a peça [%c %d]!\n", p.nome, p.id);
+        adicionarAFila(f, proximoId);
+    }
 }
