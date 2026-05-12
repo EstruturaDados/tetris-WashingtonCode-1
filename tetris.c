@@ -111,3 +111,12 @@ Peca gerarPeca(int *proximoId) {
     nova.id = (*proximoId)++;
     return nova;
 }
+
+// Função adicionar a fila
+void adicionarAFila(Fila *f, int *proximoId) {
+    if (f->total < MAX_FILA) {
+        f->itens[f->fim] = gerarPeca(proximoId);
+        f->fim = (f->fim + 1) % MAX_FILA;
+        f->total++;
+    }
+}
