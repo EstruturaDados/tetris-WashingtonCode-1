@@ -156,3 +156,14 @@ void reservarPeca(Fila *f, Pilha *p, int *proximoId) {
         printf("\n[ERRO] Pilha de reserva cheia (Limite: %d)!\n", MAX_PILHA);
     }
 }
+
+// Função usar peça reservada
+void usarPecaReservada(Pilha *p) {
+    if (p->topo >= 0) {
+        Peca p_uso = p->itens[p->topo];
+        p->topo--;
+        printf("\n[USO] Peça [%c %d] saiu da reserva para o jogo.\n", p_uso.nome, p_uso.id);
+    } else {
+        printf("\n[ERRO] Pilha de reserva vazia!\n");
+    }
+}
