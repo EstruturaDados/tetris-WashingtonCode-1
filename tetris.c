@@ -42,3 +42,47 @@ void usarPecaReservada(Pilha *p);                      // Remove do topo da pilh
 void trocarPecaAtual(Fila *f, Pilha *p);
 void trocaMultipla(Fila *f, Pilha *p);
 void exibirEstadoAtual(Fila *f, Pilha *p);
+
+int main() {
+    Fila fila;
+    Pilha reserva;
+    int proximoId = 0;
+    int opcao;
+
+    srand(time(NULL));
+
+    // Inicialização da fila e da pilha
+    inicializarFila(&fila);
+    inicializarPilha(&reserva);
+
+    // Inicialização da fila com 5 peças
+    for (int i = 0; i < MAX_FILA; i++) {
+        adicionarAFila(&fila, &proximoId);
+    }
+
+    do {
+        exibirEstadoAtual(&fila, &reserva);
+
+        printf("Opções disponíveis:\n");
+        printf("1. Jogar peça da frente da fila\n");
+        printf("2. Enviar peça da fila para a pilha de reserva\n");
+        printf("3. Usar peça da pilha de reserva\n");
+        printf("4. Trocar peça da frente da fila com o topo da pilha\n");
+        printf("5. Trocar os 3 primeiros da fila com as 3 peças da pilha\n");
+        printf("0. Sair\n");
+        printf("\nOpção escolhida: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1: jogarPeca(&fila, &proximoId); break;
+            case 2: reservarPeca(&fila, &reserva, &proximoId); break;
+            case 3: usarPecaReservada(&reserva); break;
+            case 4: trocarPecaAtual(&fila, &reserva); break;
+            case 5: trocaMultipla(&fila, &reserva); break;
+            case 0: printf("Encerrando o programa...\n"); break;
+            default: printf("\nOpção inválida!\n");
+        }
+    } while (opcao != 0);
+
+    return 0;
+}
