@@ -5,3 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
+// Definição de constantes
+#define MAX_FILA 5
+#define MAX_PILHA 3
