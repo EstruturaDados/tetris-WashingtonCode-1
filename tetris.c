@@ -133,3 +133,16 @@ void jogarPeca(Fila *f, int *proximoId) {
         adicionarAFila(f, proximoId);
     }
 }
+
+// Função reservar peça
+void reservarPeca(Fila *f, Pilha *p, int *proximoId) {
+    if (p->topo < MAX_PILHA - 1) {
+        Peca p_da_fila = removerDaFila(f);
+        p->topo++;
+        p->itens[p->topo] = p_da_fila;
+        printf("\n[AÇÃO] Peça [%c %d] movida para a reserva.\n", p_da_fila.nome, p_da_fila.id);
+        adicionarAFila(f, proximoId);
+    } else {
+        printf("\n[AVISO] Pilha de reserva cheia!\n");
+    }
+}
