@@ -102,3 +102,12 @@ void inicializarFila(Fila *f) {
 void inicializarPilha(Pilha *p) {
     p->topo = -1;
 }
+
+// Função gerar peça
+Peca gerarPeca(int *proximoId) {
+    char tipos[] = {'I', 'O', 'T', 'L'};
+    Peca nova;
+    nova.nome = tipos[rand() % 4];
+    nova.id = (*proximoId)++;
+    return nova;
+}
