@@ -15,3 +15,11 @@ typedef struct {
     char nome; // 'I', 'O', 'T', 'L'
     int id;    // Identificador único
 } Peca;
+
+// Estrutura da Fila Circular (Peças Futuras)
+typedef struct {
+    Peca itens[MAX_FILA];
+    int inicio;
+    int fim;
+    int total;
+} Fila;
