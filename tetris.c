@@ -128,3 +128,15 @@ Peca removerDaFila(Fila *f) {
     f->total--;
     return p;
 }
+
+// Função jogar peça (Dequeue)
+void jogarPeca(Fila *f, int *proximoId) {
+    if (f->total > 0) {
+        Peca p = removerDaFila(f);
+        printf("\n[JOGADA] Peça [%c %d] removida da fila e usada no jogo.\n", p.nome, p.id);
+        // Mantém a fila cheia
+        adicionarAFila(f, proximoId);
+    } else {
+        printf("\nFila vazia!\n");
+    }
+}
